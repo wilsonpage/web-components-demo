@@ -1,0 +1,15 @@
+{
+  "name": "custom-elements-demo",
+  "version": "0.0.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "Wilson Page",
+  "license": "BSD",
+  "dependencies": {
+    "ftfruit-vars": "git+ssh://git@github.com:matthew-andrews/ftfruit-vars.git"
+  }
+}

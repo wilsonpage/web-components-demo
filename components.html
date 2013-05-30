@@ -1,0 +1,15 @@
+<element name="x-fancybutton">
+  <script>
+  debugger;
+      if (this !== window) {
+        this.register({ prototype: {
+          readyCallback: function() {
+            debugger;
+          }
+        }});
+      }
+  </script>
+  <template>
+      <content></content>
+  </template>
+</element>

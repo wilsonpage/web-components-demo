@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <script src="lib/platform.js"></script>
+  <!-- <link rel="import" href="components.html"> <<< must be served, not via file:/// -->
+  <style>
+    :root {
+      -webkit-var-color-pink: #FFF1E0;
+      -webkit-var-color-dark-text: #333;
+    }
+
+    html,
+    body {
+      background: -webkit-var(color-pink);
+      color: -webkit-var(color-dark-text);
+    }
+
+  </style>
+
+  <!-- components -->
+
+  <element name="ft-apple">
+    <style>
+      ft-apple {
+        display: block;
+      }
+
+      ft-apple img {
+        max-width: 100%;
+      }
+    </style>
+    <script>
+        (function() {
+          if (this === window) return;
+
+          // Register the prototype
+          this.register({ prototype: {
+            readyCallback: function() {
+              console.log(this.localName + ' ready');
+
+              var template = document.getElementById('ft-apple-template');
+
+              this._root = this.webkitCreateShadowRoot();
+              this._root.appendChild(template.content.cloneNode(true));
+            },
+            insertedCallback: function() {
+              console.log(this.localName + ' inserted');
+            },
+            removedCallback: function() {
+              console.log(this.localName + ' removed');
+            }
+          }});
+
+        }).call(this);
+    </script>
+    <template id="ft-apple-template">
+      <div>
+        <content select="img"></content>
+        <content select="h2"></content>
+        <content select="p"></content>
+      </div>
+    </template>
+  </element>
+
+  <element name="ft-satsuma">
+    <style>
+      ft-satsuma {
+        display: block;
+        width: 300px;
+      }
+    </style>
+    <script>
+        (function() {
+          if (this === window) return;
+
+          // Register the prototype
+          this.register({ prototype: {
+            readyCallback: function() {
+              console.log(this.localName + ' ready');
+
+              var template = document.getElementById('ft-satsuma-template');
+
+              this._root = this.webkitCreateShadowRoot();
+              this._root.appendChild(template.content.cloneNode(true));
+            },
+            insertedCallback: function() {
+              console.log(this.localName + ' inserted');
+            },
+            removedCallback: function() {
+              console.log(this.localName + ' removed');
+            }
+          }});
+
+        }).call(this);
+    </script>
+    <template id="ft-satsuma-template">
+      <content></content>
+    </template>
+  </element>
+</head>
+<body>
+  <ft-apple>
+    <img src="http://im.ft-static.com/content/images/0cb68bf8-18c7-4675-9b0f-4c51917a30a3.img"/>
+    <h2>This is the headline</h2>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+  </ft-apple>
+
+  <ft-satsuma>
+    <ft-apple>
+      <img src="http://im.ft-static.com/content/images/0cb68bf8-18c7-4675-9b0f-4c51917a30a3.img"/>
+      <h2>Headline</h2>
+      <p>TLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+    </ft-apple>
+    <ft-apple>
+      <img src="http://im.ft-static.com/content/images/0cb68bf8-18c7-4675-9b0f-4c51917a30a3.img"/>
+      <h2>Headline</h2>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+    </ft-apple>
+    <ft-apple>
+      <img src="http://im.ft-static.com/content/images/0cb68bf8-18c7-4675-9b0f-4c51917a30a3.img"/>
+      <h2>Headline</h2>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+    </ft-apple>
+    <ft-apple>
+       <img src="http://im.ft-static.com/content/images/0cb68bf8-18c7-4675-9b0f-4c51917a30a3.img"/>
+      <h2>Headline</h2>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+    </ft-apple>
+  </ft-satsuma>
+</body>
+</html>
